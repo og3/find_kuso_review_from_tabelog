@@ -1,0 +1,2 @@
+# find_kuso_review_from_taberogu
+『食べログ』に掲載されている店のURLを渡すとその店の口コミを取得するスクリプト
