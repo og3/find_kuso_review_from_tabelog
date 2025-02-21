@@ -25,3 +25,23 @@ score,review_at,content
 ```bash
 python find_kuso_review_from_taberogu.py http://tabelog.com/tokyo/A1323/A132305/13289424
 ```
+## 動作環境構築
+- 動作にはseleniumとChromeDriverが必要
+```
+conda install selenium
+```
+- インストールしているChromeのバージョンに合わせて以下からChromeDriverをダウンロードしてインストールする。
+```
+https://googlechromelabs.github.io/chrome-for-testing/#stable
+```
+- C以下に設置してgit-bashでパスを通す
+```
+vi ~/.bashrc
+# ChromeDriver のパスを追加
+export PATH=$PATH:/c/chromedriver
+# 有効化
+source ~/.bashrc
+```
+### 注意
+- ChromeDriverはChromeのバージョンに合わせて更新する必要がある。
+- conda環境でChromeDriverがインストールできないので、これを手動でやる必要がある。
