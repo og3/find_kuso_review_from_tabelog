@@ -44,13 +44,27 @@ tokenizer_obj = dictionary.Dictionary("user_dict.dic").create()
 ・良い店の評価：「設備」、「特徴」、「評価」
 ```
 　形態素解析で抜き出した文字列の中に、これらの項目があればポイントを振っていき、ポイントが高ければ「良いレビュー」とする。
-##### 取得したメニューの一覧を配列のファイルを作る
-　csvとto_aするようなイメージで作る(wip)
-##### 食べ物の特徴を取得して配列で持つ
-　以下のサイトから「用語」を取得し、配列にしてファイルを持つ。
+##### 取得したメニューの一覧を配列のファイルを作る(wip)
+　csvとto_aするようなイメージで作る
+##### 食べ物の特徴を取得して配列で持つ(wip)
+　以下のサイトから取得し、配列にしてファイルを持つ。
+```
+# 「用語」の部分を取得する
 https://www.naro.affrc.go.jp/org/nfri/yakudachi/terms/texture.html
-　見た目の特徴は以下のサイトから取得して、同じくファイルで持つ。
+# 「料理の見た目」に関する用語を取得する
 https://note.com/fortunefactory/n/nc9cd30d3c862
+```
 ### 食べログのレビューを評価する
+　食べログのレビューを取得して、形態素解析をして良い感じに分割し、分割した単語を評価する。
 #### 食べログの「口コミ」を取得する
+　URLは店の個別ページ。
+```
+python find_review/find_kuso_review_from_taberogu.py https://tabelog.com/tokyo/A1312/A131204/13008029/
+```
 #### 取得した「口コミ」をsudachipyで形態素解析する
+　デフォルトだとdict="core"＋ユーザー辞書で動くので、dict="full"+ユーザー辞書が良ければ2回解析する必要がある。
+```bash
+python tokenize_review/tokenize_review_by_sudachi.py
+```
+#### 解析したレビューをスコアリングしてCSVで出力する(wip)
+　そういうスクリプトを作る。CSVをソートして役に立つレビューだけを読むようにすればよさげ。
