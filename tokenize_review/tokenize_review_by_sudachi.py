@@ -2,7 +2,7 @@ import pandas as pd
 from sudachipy import dictionary, tokenizer
 
 # SudachiPyの設定（dict="full" を使用）
-tokenizer_obj = dictionary.Dictionary(dict="full").create()
+tokenizer_obj = dictionary.Dictionary(dict="dict/taberogu_dict.dic").create()
 mode = tokenizer.Tokenizer.SplitMode.C  # 文単位で分割する
 
 # CSVファイルを読み込む
